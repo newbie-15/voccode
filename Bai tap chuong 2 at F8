@@ -1,0 +1,65 @@
+#include <iostream>
+#include <math.h>
+int main()
+{
+	{
+		//bai tap 1
+		//khai bao kieu so nguyen bien a va b
+		int a, b;
+		//hien thi ra man hinh
+		std::cout << "a = ";
+		std::cin >> a;
+		std::cout <<"b = ";
+		std::cin >> b;
+		
+		printf("a + b = %d\n", a + b); //trong do %d duoc thay the bang gia tri sau giay , va \n la xuong dong
+		printf("a - b = %d", a - b);
+		
+	}
+	{
+		//bai tap 2
+		//khai bao kieu ki tu bien c
+		char c;
+		//nhap du lieu tu ban phim cho bien
+		std::cin >> c;
+		//hien thi ra man hinh
+		std::cout << "Chu cai viet thuong: " << c << std::endl; // hien thi ra c do kieu ki tu
+		std::cout << "Chu cai viet hoa: " << (char)(c - 32) << std::endl;//ep kieu char do co so nen mac dinh ham se tu dinh nghia la kieu so nguyen
+	}
+	{
+		//bai tap 3
+		//khai bao kieu so nguyen bien a va b
+		int a, b;
+		//hoan doi gia tri 2 so do va in ra man hinh
+		std::cout << "a = ";
+		std::cin >> a; // 1
+		std::cout << "b = ";
+		std::cin >> b; // 2
+		//hoan doi
+		//khai bao kieu so nguyen bien c voi gia tri trung gian la gia tri ban dau cua bien a
+		int c = a; // bien c duoc gan gia tri ban dau cua a
+		a = b; // 1 = 2 => a = 2
+		b = c; // 2 = 1 => b = 1
+		
+		printf("Gia tri cua a la %d\n", a);
+		printf("Gia tri cua b la %d\n", b);
+	}
+	{
+		//Bai tap 4
+		//khai bao kieu so nguyen bien a va b
+		int a, b;
+		//in ra man hinh so nho hon, luu y a va b khong cung gia tri
+		std::cout << "a = ";
+		std::cin >> a;
+		std::cout << "b = ";
+		std::cin >> b;
+		
+		//cong thuc tinh so nho hon : So be = ( Tong - Hieu ) / 2
+		//khai bao kieu so nguyen bien tong va hieu
+		int tong = a + b;
+		int hieu = abs(a - b); //trong do abs la gia tri tuyet doi cua phep hieu vi de bai yeu cau so nguyen duong
+		//hien thi ra man hinh
+		
+		printf("Gia tri nho hon la %d", (tong - hieu) / 2);
+	}
+}
