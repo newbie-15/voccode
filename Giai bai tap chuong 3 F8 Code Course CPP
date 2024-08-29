@@ -1,0 +1,129 @@
+BAI 1 :
+#include <iostream>
+#include <math.h>
+using namespace std;
+int main()
+
+{
+	int a, b;
+	cout << "a = ";
+	cin >> a;
+	cout << "b = ";
+	cin >> b;
+	
+	if (a == 0 && b == 0) {
+		cout << "Phuong trinh co vo so nghiem.";
+	}
+	else if (a == 0 && b != 0) {
+		cout << "Phuong trinh vo nghiem.";
+	}
+	else if (a != 0) {
+		cout << "Nghiem cua phuong trinh la " << -b/a;
+	}
+return 0;  
+
+}
+
+
+BAI 2 : #include <iostream>
+#include <math.h>
+using namespace std;
+int main()
+
+{
+	int n;
+	
+	try_again: //label
+	cout << "n = ";
+	cin >> n; // n = 10
+	if (n > 100) {
+		goto try_again; //goto label
+	}
+	int sum = 0; //luu tru gia tri so le cua n
+	for (int i = 1; i <= n; i++) {
+		if (i % 2 == 1) {
+			sum += i;
+		}
+	}
+	cout << "Ket qua la " << sum;
+return 0;  
+
+}
+
+
+BAI 3: 
+#include <iostream>
+#include <math.h>
+using namespace std;
+int main()
+
+{
+	float degC, degF;
+	
+	cout << "F = ";
+	cin >> degF; //nhap gia tri vao bien degF
+	
+	degC = (degF - 32) / 1.8; // cong thuc tinh degC
+	
+	cout << "C = " << degC;
+return 0;  
+
+}
+
+BAI 4: 
+#include <iostream>
+#include <math.h>
+using namespace std;
+int main()
+
+{
+	//minh se dung lenh for lam bai nay
+	
+	int n;
+	//dieu kien de n la so nguyen to
+	try_again:
+	cout << "n = " ;
+	cin >> n;
+	if(n == 1 || n < 1) {
+		goto try_again;
+	}
+	//So nguyen to la so chia het cho 1 va chinh no tuc la so co 2 uoc va so nguyen to luon lon hon 1
+	
+	bool songuyento = true; //1
+	for (int i = 2; i <= sqrt (n); i++) { 
+		if (n % i == 0) {
+			songuyento = false; //0
+			break;
+		}
+	}
+	if (songuyento) { //mac dinh chi can nhap ten bien bool la se co gia tri true
+		cout << "n la so nguyen to";
+	}
+	else {
+		cout << "n khong la so nguyen to";
+	}
+	
+return 0;  
+
+}
+BAI 5:
+#include <iostream>
+#include <math.h>
+using namespace std;
+int main()
+
+{
+	int n;
+	cout << "n = ";
+	cin >> n;
+	int sum = 0; //bien trung gian
+	
+	while (n > 0) { //neu n lon hon 0
+		int luutru = n % 10; // lay so cuoi cua n
+		sum += luutru;
+		n /= 10;
+	}
+	cout << "Ket qua la " << sum;
+return 0;  
+
+}
