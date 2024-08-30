@@ -1,0 +1,148 @@
+Bai 1 :
+#include <iostream>
+using namespace std;
+int main()
+{
+	//Doi voi mang 2 chieu : So phan tu = So Hang * So cot
+	
+	unsigned int n, m;
+	
+	//dieu kien
+	try_again:
+		cout << "n = ";
+		cin >> n;
+		cout << "m = ";
+		cin >> m;
+	if (n > 10 || m > 10) {
+		goto try_again;
+	}
+	int sum = 0;
+	int array[n][m];
+	
+	cout << "Nhap mang:";
+	
+	for (int i = 0; i < n; i++) {
+		for (int j = 0; j < m; j++) {
+			cin >> array[i][j];
+			sum += array[i][j];
+		}
+		
+	};
+	cout << "Tong cac phan tu cua mang la: " << sum;
+	
+	
+    return 0;
+}
+
+Bai 2:
+#include <iostream>
+using namespace std;
+int main()
+{
+	//Doi voi mang 2 chieu : So phan tu = So Hang * So cot
+	
+	//Dieu kien 0 < n <= 10
+	unsigned int n;
+	try_again:
+		cout << "n = ";
+		cin >> n;
+		if (n > 10) {
+			goto try_again;
+		}
+	int array[n];
+	
+	cout << "Nhap mang: ";
+	
+	int i = 0;
+	do {
+		cin >> array[i];
+		i++;
+	} while(i < n);
+	
+	int max = array[0];
+	i = 0;
+	do {
+		if (array[i] > max)
+		max = array[i];
+		i++;
+	} while(i < n);
+	cout << "Gia tri lon nhat la " << max;
+	
+	
+    return 0;
+}
+
+Bai 3 :
+#include <iostream>
+using namespace std;
+int main()
+{
+	//Doi voi mang 2 chieu : So phan tu = So Hang * So cot
+	
+	unsigned int n, m; //dieu kien so nguyen duong
+	
+	//Dieu kien tiep tuc
+	try_again:
+		cout << "n = ";
+		cin >> n;
+		cout << "m = ";
+		cin >> m;
+	if (n > 10 || m > 10) {
+		goto try_again;
+	}
+	
+	int array[n][m];
+	
+	cout << "Nhap mang: ";
+	for (int i = 0; i < n; i++) { //voi no la hang m la cot
+		for (int j = 0; j < m; j++) {
+			cin >> array[i][j]; 			
+		}
+	}
+	int max = array[0][0]; //gia tri dau tien cua mang
+	cout << "Cac phan tu lon nhat la: ";
+	for (int i = 0; i < n; i++) {
+		for (int j = 0; j < m; j++) {
+			if (array[i][j] > max) {
+				max = array[i][j];
+			}
+		}
+		cout << max << " ";
+	}
+	
+    return 0;
+}
+
+Bai 4: 
+#include <iostream>
+using namespace std;
+
+int main() {
+	
+	int array[10][10];
+	int n, m;
+	cout << "n = ";
+	cin >> n;
+	cout << "m = ";
+	cin >> m;
+	
+	cout << "Nhap mang: " << endl;
+	
+	for (int i = 0; i < n; i++) { //duyet qua hang
+		for (int j = 0; j < m; j++) { //duyet qua cot
+			cin >> array[i][j];
+		}
+	}
+	
+	int sum = 0;
+	for (int i = 0; i < n; i++) {
+		for (int j = 0; j < m; j++) {
+			if (i == 0 || j == 0 || i == n - 1 || j == m - 1) {
+				sum += array[i][j];
+			}
+		}
+	}
+	cout << "Tong cac gia tri cua bien la: " << sum;
+	
+	return 0;
+}
