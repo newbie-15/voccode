@@ -1,0 +1,108 @@
+Bai 1 : 
+#include <iostream>
+using namespace std;
+
+int main() {
+	
+	//tao mang
+	int array[15];
+	
+	int n; // n = 10
+	cout << "Nhap n = ";
+	cin >> n;
+	
+	//Nhap gia tri vao mang
+	cout << "Nhap gia tri vao mang : ";
+	
+	for (int i = 0; i < n; i++) {
+		cin >> array[i]; // array[0] > array[9]
+	}
+	
+	int x;
+	cout << "Nhap x = ";
+	cin >> x;
+	
+	//Them x vao cuoi mang
+	array[n] = x; //array[10] = gia tri x
+	n++; //tang n len 1 don vi
+	
+	cout << "Gia tri sau khi them la : ";
+	for (int i = 0; i < n; i++) {
+		cout << array[i] << " ";
+	}
+	
+    return 0;
+}
+
+Bai 2: 
+#include <iostream>
+using namespace std;
+
+int main() {
+	
+	int array[15];
+	
+	int n; //n = 5
+	cout << "Nhap n = ";
+	cin >> n;
+	
+	cout << "Nhap gia tri cua mang : ";
+	for (int i = 0; i < n; i++) { 
+		cin >> array[i]; //nhap gia tri tu array[0] den array[4]
+	}
+	
+	//xoa phan tu
+	int x;
+	cout << "Nhap x = ";
+	cin >> x;
+	
+	for (int i = x; i < n - 1; i++) {
+		array[i] = array[i + 1]; //gia tri can thay doi se bang gia tri tiep theo
+	}
+	
+	n--; //giam n di 1 don vi = > n = 4
+	cout << "Gia tri sau khi thay doi : ";
+	
+	for (int i = 0; i < n; i++) {
+		cout << array[i] << " ";
+	}
+    return 0;
+}
+
+Bai 3 :
+#include <iostream>
+using namespace std;
+
+int main() {
+	
+	int array[15];
+	int n; // n = 5
+	cout << "Nhap n = ";
+	cin >> n;
+	
+	cout << "Nhap gia tri cua mang : ";
+	for (int i = 0; i < n; i++) {
+		cin >> array[i];
+	}
+	
+	int x; // x = 4
+	cout << "Nhap x = ";
+	cin >> x;
+	
+	int y;
+	cout << "Nhap y = ";
+	cin >> y;
+	
+	for (int i = n; i > x; i--) { 
+		array[i] = array[i - 1]; //array[5] new = array[4]
+	}
+	array[x] = y;
+	n++; //tang n len 1 don vi
+	
+	cout << "Gia tri duoc them vao la : ";
+	for (int i = 0; i < n; i++) {
+		cout << array[i] << " ";
+	}
+    return 0;
+}
+  
