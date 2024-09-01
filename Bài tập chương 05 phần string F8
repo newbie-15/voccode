@@ -1,0 +1,128 @@
+Bai 1: 
+#include <iostream>
+#include <string>
+using namespace std;
+int main () {
+	
+	string str;
+	cout << "Nhap chuoi: ";
+	getline(cin, str);
+	//su dung vong lap while de xoa khoang cach o dau va cuoi chuoi, su dung tienbien.erase(x, n) de xoa va tienbien.length(); de chon vi tri cuoi cung
+	//xoa khoang trang dau tien
+	while(str[0] == ' ') {
+		str.erase(0, 1);
+	}
+	//xoa khoang trang cuoi cung
+	while(str[str.length() - 1] == ' ') {
+		str.erase(str.length() -1, 1);
+	}
+	cout << "Ket qua: " << str;
+	
+	return 0;
+}
+Bai 2:
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+	
+	string str;
+	cout << "Nhap chuoi: ";
+	getline(cin, str); //nhap ki tu chua khoang trang
+	//loai bo khoang trang giua cac tu bang cach su dung lenh while
+	int i = 0;
+	while (i < str.length()) {
+		if (str[i] == ' ' && str[i + 1] == ' ') {
+			str.erase(i, 1); //erase tai vi tri i va xoa di 1 ki tu
+			i--; //giam i ve 1 don vi
+		}
+		i++; //tang i len 1 don vi tuc la ve gia tri i ban dau de kiem tra 
+	}
+	cout << "Ket qua: "<< str;
+	return 0;
+}
+Bai 3:
+#include <iostream>
+#include <string> 
+using namespace std;
+
+int main () {
+	
+	string zen;
+	cout << "Nhap chuoi: ";
+	getline (cin, zen); //nhap chuoi chua khoang trang
+	//viet hoa chu cai dau o moi tu, con lai viet thuong
+	/* Nhap chuoi: f8 fulLsTack
+		Ket qua: F8 Fullstack */
+	
+	bool nnew = true;
+	int i = 0;
+	while (i < zen.length()) { //i chay tu 0 den vi tri index cuoi cua chuoi
+		if (zen[i] == ' ') {
+			nnew = true;
+		}
+		else if (nnew && zen[i] >= 'a' && zen[i] <= 'z') {
+			zen[i] = zen[i] - 32; //-32 don vi de chuyen tu in thuong thanh in hoa
+			nnew = false;
+		}
+		else if (nnew && zen[i] >= 'A' && zen[i] <= 'Z' ) {
+			nnew = false;
+		}
+		else if (!nnew && zen[i] >= 'A' && zen[i] <= 'Z') {
+			zen[i] = zen[i] + 32;
+			nnew = false;
+		}
+		i++;
+	}
+	cout << "Ket qua: " << zen;
+	
+	return 0;
+}
+Bai 4: 
+#include <iostream>
+#include <string>
+using namespace std;
+int main () {
+	
+	string zen;
+	cout << "Nhap chuoi: ";
+	getline (cin, zen); //nhap chuoi ki tu chua khoang trang
+	/* 
+	Nhap chuoi:    bUI   duC   LONG 
+	Ket qua: Bui Duc Long	
+	*/
+	
+	//loai bo khoang trang o dau chuoi
+	while (zen[0] == ' ') {
+		zen.erase(0, 1);
+	}
+	//loai bo khoang trang thua o giua cac tu
+	for (int i = 0; i < zen.length(); i++) {
+		if (zen[i] == ' ' && zen[i + 1] == ' ') {
+			zen.erase(i, 1);
+			i--; //giam i de kiem tra lai con trung lap space ko
+		}
+	}
+	//viet hoa chu cai thuong cac chu con lai viet thuong
+	bool haha = true;
+	for (int i = 0; i < zen.length(); i++) {
+		if (zen[i] == ' ') {
+			haha = true;
+		}
+		else if (haha && zen[i] >= 'a' && zen[i] <= 'z') {
+			zen[i] = zen[i] - 32; //-32 don vi de chuyen tu chu thuong thanh in hoa
+			haha = false; //chuyen dieu kien ve false de dam bao ki tu tiep theo khong in hoa
+		}
+		else if (!haha && zen[i] >= 'A' && zen[i] <= 'Z') {
+			zen[i] = zen[i] + 32; //tu hoa thanh in thuong + 32 don vi
+			haha = false;
+		}
+		else if (haha && zen[i] >= 'A' && zen[i] <= 'Z') { //neu dung truoc la khoang cach nhung chinh no la in hoa
+			haha = false;
+		}
+		}
+	cout << "Ket qua: " << zen;
+	
+	return 0;
+}
