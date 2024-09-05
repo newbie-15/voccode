@@ -1,0 +1,137 @@
+Bai 1 : 
+#include <iostream>
+#include <math.h>
+//so nguyen to la so (chi) chia het cho 1 va chinh no
+bool so_nt (unsigned int n) {
+	if (n == 1) {
+		return false;
+	}
+	for (int i = 2; i <= sqrt(n); i++) {
+		if (n % i == 0) {
+			return false;
+		}
+	}
+	return true;
+}
+void print (unsigned int n) {
+	if (so_nt(n)) {
+		std::cout << n << " la so nguyen to";
+	}
+	else {
+		std::cout << n << " khong la so nguyen to";
+	}
+
+}
+int main() {
+	unsigned int x;
+	std::cout << "Nhap x = ";
+	std::cin >> x;
+	print(x);
+	
+	return 0;
+}
+
+Bai 2:
+//Su dung vong lap
+#include <iostream>
+#include <math.h>
+//so nguyen to la so chia het cho 1 va chinh no
+bool check_snt (unsigned int n) {
+	if (n == 1) {
+		return false;
+	}
+	for (int i = 2; i <= sqrt(n); i++) {
+		if (n % i == 0) {
+			return false;
+		}
+	}
+	return true;
+}
+int tong_so_nt (unsigned int n) {
+	int sum = 0; //bien luu tru
+	for (int i = 2; i <= n; i++) {
+		if (check_snt(i)) {
+			sum += i;
+		}
+	}
+	return sum;
+}
+int main () {
+	int x;
+	std::cout << "n = ";
+	std::cin >> x;
+	check_snt(x);
+	std::cout << "Ket qua: " << tong_so_nt(x);
+	return 0;
+}
+//Su dung de quy
+#include <iostream>
+#include <math.h>
+bool check_snt (unsigned int n) {
+	if (n == 1) {
+		return false;
+	}
+	for (int i = 2; i <= sqrt(n); i++) {//i chay tu 2 toi can bac 2 cua n
+		if (n % i == 0) {
+			return false;
+		}
+	}
+	return true;
+}
+int sum_snt (unsigned int n){
+	if (n > 1 && check_snt(n)) {
+		return n + sum_snt(n - 1);
+	}
+	else if (n > 1 && !check_snt(n)) {
+		return sum_snt(n - 1);
+	}
+}
+
+int main () {
+	unsigned int n;
+	std::cout << "n = ";
+	std::cin >> n;
+	check_snt(n);
+	std::cout << "Ket qua: " << sum_snt(n);
+	return 0;
+}
+Bai 3:
+//Su dung de quy
+#include <iostream>
+//su dung vong lap
+//vi du 5! = 5 * 4 * 3 * 2 * 1
+int factorial (unsigned int n) {
+	if (n == 0)  {
+		return 1; //neu n la khong thi ket qua se tra ve la 1
+	}
+	else {
+		return n * factorial (n - 1);
+	}
+	
+}
+int main () {
+	unsigned int n;
+	std::cout << "n = ";
+	std::cin >> n;
+	std::cout << n << "! = " << factorial(n);
+	
+	return 0;
+}
+//Su dung vong lap
+#include <iostream>
+//su dung vong lap
+//vi du 5! = 5 * 4 * 3 * 2 * 1
+void factor (unsigned int n) {
+	int plus = 1;
+	for (int i = 1; i <= n; i++) {
+		plus *= i; // sum = sum * i
+	}
+	std::cout << n << "! = " << plus;
+}
+int main () {
+	unsigned int x;
+	std::cout << "n = ";
+	std::cin >> x;
+	factor(x);
+	return 0;
+}
