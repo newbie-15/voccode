@@ -85,7 +85,7 @@ int sum_snt (unsigned int n){
 	else if (n > 1 && check_snt(n)) {
 		return n + sum_snt(n - 1);
 	}
-	else if (n > 1 && check_snt(n)) {
+	else if (n > 1 && !check_snt(n)) {
 		return sum_snt(n - 1);
 	}
 }
