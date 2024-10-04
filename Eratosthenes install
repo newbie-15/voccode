@@ -1,6 +1,6 @@
 //Đề bài yêu cầu viết chương trình đếm xem trong đoạn [a -> b] có bao nhiêu số nguyên tố và tất cả các chữ số đó cũng là số nguyên tố
 //ví dụ ta cho chạy a đến b từ 10 đến 30 thì các số nguyên tố sẽ là : 11, 13, 17, 19, 21, 23, 27, 29 => sau đó ta check các số nguyên tố đó nếu tất cả các chữ số đều là số nguyên tố thì thõa mãn điều kiện
-//trong ví dụ trên những số thõa mãn sẽ là : 23, 27 (2 số)
+//trong ví dụ trên những số thõa mãn sẽ là : 23
 //code
 #include <stdio.h>
 #include <math.h>
