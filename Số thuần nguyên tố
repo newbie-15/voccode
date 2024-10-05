@@ -1,0 +1,58 @@
+#include <stdio.h>
+#include <math.h>
+//so thuan nguyen to la so nguyen to va cac chu so nguyen to do la so nguyen to dong thoi tong cua chung van la so nguyen to
+//install eratosthenes de sang cac so nguyen to tu left den right
+int max(int, int);
+int check_prime(int);
+void serve(int, int);
+int max(int a, int b) {
+	return a > b ? a : b;
+}
+int check_prime(int a) {
+	for(int i = 2; i<= sqrt(a);i++) {
+		if(a % i == 0) return 0;
+	}
+	return a > 1;
+}
+void serve(int l, int r) {
+	int prime[r-l+1]; //luon tao mang lon hon 1 don vi cua de bai yeu cau. cac so nguyen tu chay tu a den b = b-a+1(eratosthenes)
+	for(int i = 0; i<=r-l; i++) {
+		prime[i]=1;
+	}
+	for(int i = 2; i<=sqrt(r);i++) {
+			for(int j = max(i*i, (l+i-1)/i*i); j<=r; j+=i) { //j luon la boi cua i va luon lon hon hoac bang l
+				prime[j-l]=0;
+			}
+	}
+	int cnt = 0;//bien dem
+	for(int i = l; i<=r; i++) {
+		if(prime[i-l]) {
+			int n = i; //bien luu tru gia tri so nguyen to
+			int sum = 0, check = 1;
+			while(n) {
+				int tmp = n%10;
+				if(tmp != 2 && tmp!=3 && tmp != 5 && tmp != 7) {
+					check = 0;
+					break;
+				}
+				sum+=tmp;
+				n/=10;
+			}
+			if(check && check_prime(sum)) {
+				cnt++;
+			}
+		}
+	}
+	printf("%d",cnt);
+}
+int main () {
+	int t;
+	scanf("%d",&t);
+	while(t--) {
+		int a, b;
+		scanf("%d%d",&a,&b);
+		serve(a, b);
+		printf("\n");
+	}
+	return 0;
+}
