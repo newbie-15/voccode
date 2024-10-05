@@ -1,0 +1,41 @@
+//Một trong những bài toán nổi tiếng về số nguyên tố. Theo ông mọi số chẵn lớn hơn 2 đều có thể được biểu diễn dưới dạng tổng của 2 số nguyên tố
+//coding
+//Đề bài yêu cầu tạo một test key, trong test key đó ta khởi tạo một biến n bất kì lớn hơn 2 là số chẵn và bé hơn 10000, mỗi test key tương đương với một số bạn muốn kiểm tra. 
+//Hãy in ra màn hình tổng các dãy nguyên tố có tổng bằng n ( tổng ở đây là tổng đôi )
+#include <stdio.h>
+#include <math.h>
+  #include <stdio.h>
+#include <math.h>
+  int prime[10001];
+  //install algorthim eratosthenes
+  void serve(){
+  for(int i = 0; i<=10000;i++){
+    prime[i]=1;
+    prime[0]=prime[1]=0;//loai bo 0 va 1
+  }
+  //serve number prime
+  for(int i = 2; i <= sqrt(10000);i++) {
+    if(prime[i]) {
+      for(int j = i*i; j<=10000;j+=i){
+        prime[j] = 0; // cac boi cua i deu bi loai bo
+      }
+    }
+  }
+  }
+int main (){
+  serve();
+  int t;
+  scanf("%d",&t);
+  while(t--){
+    int n;
+    scanf("%d",&n);
+    if(n % 2 == 0 && n > 2 && n <= 10000){
+      //hien thi cac so nguyen to co tong bang n
+      for(int i = 2; i<=n/2;i++){
+        if(prime[i] && prime[n-i]) printf("%d %d\n", i, n-i);
+       }
+    }
+    else printf("Gia tri ban nhap khong thoa man yeu cau cua de bai vui long thu lai sau!\n");
+  }
+return 0; 
+}
