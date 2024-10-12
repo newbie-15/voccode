@@ -1,0 +1,28 @@
+//yêu cầu tìm ước số nguyên tố nhỏ nhất trong 1 đoạn từ 1 đến n trong đó n thuộc từ 1<=n<=10^5
+#include <stdio.h>
+#include <math.h>
+//install eratosthenes sang bien doi
+int prime[100001];//tao mot mang voi kich thuoc toi da cua yeu cau de bai cong voi 1
+void serve(){
+  //luu y: day la sang bien doi
+  for(int i=1;i<=100000;i++){
+    prime[i]=i;
+  }
+  for(int i=2;i<=sqrt(100000);i++){
+
+    for(int j=i*i;j<=100000;j+=i){
+      if(prime[j]==j){//neu j la gia tri ban dau
+        prime[j]=i;//gan boi cua i la i
+      }
+    }
+}
+}
+int main(){
+  serve();
+  int n;
+  scanf("%d",&n);
+  for(int i=1;i<=n;i++){
+    printf("%d ",prime[i]);
+  }
+return 0;
+}
