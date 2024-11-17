@@ -1,0 +1,27 @@
+#include <stdio.h>
+//doan code nhap thang va nam de hien thi ngay
+//thang 31 ngay : 1, 3, 5, 7, 8, 10, 12
+//thang 30 ngay : 4, 6, 9, 11
+//thang 28 ngay : 2 neu la nam nhuan thi 29 ngay
+int main () {
+	int t, n; //voi bien t la thang va n la nam
+	scanf("%d %d",&t, &n);
+	if(t >= 1 && t <= 12 && n > 0) {
+		if(t == 1 || t == 3 || t == 5 || t == 7 || t == 8 || t == 10 || t == 12){
+			printf("31");
+		}
+		else if(t == 4 || t == 6 || t == 9 || t == 11){
+			printf("30");
+		}
+		else {
+			if(n % 400 == 0 || (n % 4 == 0 && n % 100 != 0)){ //nam nhuan la nam chia het cho 400 hoac nam chia het cho 4 nhung khong chia het cho 100
+				printf("29");
+			}
+			else 
+				printf("28");
+		}
+	}
+	else 
+		printf("INVALID\n");
+	return 0;
+}
